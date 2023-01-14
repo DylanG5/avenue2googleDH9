@@ -32,6 +32,8 @@ while twofactor:
 
 time.sleep(2)
 driver.find_element(By.XPATH,'/html/body/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div[1]/div/div[1]/a/h2').click()
+time.sleep(2)
+print(driver.find_element(By.XPATH,'/html/body').text)
 time.sleep(10000)
 date = driver.find_element(By.XPATH, '/html/body/d2l-w2d-work-to-do//d2l-w2d-collections//div/div[2]').text
 print(date)
