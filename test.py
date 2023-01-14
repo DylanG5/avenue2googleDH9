@@ -8,7 +8,7 @@ import json
 DRIVER_PATH = '/path/to/chromedriver'
 driver = webdriver.Chrome(executable_path=DRIVER_PATH)
 
-with open('C:\\Users\\msbra\\git projects\\avenue2googleDH9\\Credentials.json') as jsonFile:
+with open('Credentials.json') as jsonFile:
         data = json.load(jsonFile)
 
 time.sleep(1)
