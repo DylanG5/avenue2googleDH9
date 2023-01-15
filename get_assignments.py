@@ -51,6 +51,56 @@ def pullinfo():
         print(name[i] + " | " + date[i])
     time.sleep(2)
 
+    for i in date:
+        i = i[0:12]
+        j = '2023-MM-DD'
+        if (i[0:3] == 'Jan'):
+            j=j.replace('MM','01')
+        elif (i[0:3] == 'Feb'):
+            j=j.replace('MM','02')
+        elif (i[0:3] == 'Mar'):
+            j=j.replace('MM','03')
+        elif (i[0:3] == 'Apr'):
+            j=j.replace('MM','04')
+        elif (i[0:3] == 'May'):
+            j=j.replace('MM','05')
+        elif (i[0:3] == 'Jun'):
+            j=j.replace('MM','06')
+        elif (i[0:3] == 'Jul'):
+            j=j.replace('MM','07')
+        elif (i[0:3] == 'Aug'):
+            j=j.replace('MM','08')
+        elif (i[0:3] == 'Sep'):
+            j=j.replace('MM','09')
+        elif (i[0:3] == 'Oct'):
+            j=j.replace('MM','10')
+        elif (i[0:3] == 'Nov'):
+            j=j.replace('MM','11')
+        elif (i[0:3] == 'Dec'):
+            j=j.replace('MM','12')
+
+        if (i[4:6] == '1 '):
+            j=j.replace('DD','01')
+        elif (i[4:6] == '2 '):
+            j=j.replace('DD','02')
+        elif (i[4:6] == '3 '):
+            j=j.replace('DD','03')
+        elif (i[4:6] == '4 '):
+            j=j.replace('DD','04')
+        elif (i[4:6] == '5 '):
+            j=j.replace('DD','05')
+        elif (i[4:6] == '6 '):
+            j=j.replace('DD','06')
+        elif (i[4:6] == '7 '):
+            j=j.replace('DD','07')
+        elif (i[4:6] == '8 '):
+            j=j.replace('DD','08')
+        elif (i[4:6] == '9 '):
+            j=j.replace('DD','09')
+        else:
+            j=j.replace('DD',i[4:6])
+        print(j)
+
 def main():
     signup()
     time.sleep(1)
