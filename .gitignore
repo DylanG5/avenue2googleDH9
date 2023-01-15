@@ -6,3 +6,4 @@ venv/
 venv
 .venv
 virtualenv/
+__pycache__/

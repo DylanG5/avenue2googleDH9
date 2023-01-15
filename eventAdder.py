@@ -50,11 +50,11 @@ def main():
                 'location': 'McMaster University',
                 'description':'Automated Calendar Events',
                 'start': {
-                    'dateTime': dates[i]+'T09:00:00-07:00',
+                    'dateTime': '2023-05-27T09:00:00-07:00',
                     'timeZone': 'America/Los_Angeles',
                 },
                 'end': {
-                    'dateTime': dates[i]+'T17:00:00-07:00',
+                    'dateTime': '2023-05-27T17:00:00-07:00',
                     'timeZone': 'America/Los_Angeles',
                 },
                 'recurrence': [
@@ -95,5 +95,5 @@ def main():
         print('An error occurred: %s' % error)
 
 
-#if __name__ == '__main__':
-    #main()
+if __name__ == '__main__':
+    main()
