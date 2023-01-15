@@ -48,6 +48,7 @@ def pullinfo():
     for i in range(num):
         name.append(driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/ul/li['+str(i+1)+']/div[2]/div/div/div[1]/div[2]').text)
         date.append(driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/ul/li['+str(i+1)+']/div[2]/div/div/div[2]/div[1]').text)
+        name[i] += date[i][date[i].index(",")+6 : date[i].index(",")+15] 
         print(name[i] + " | " + date[i])
     time.sleep(2)
 
