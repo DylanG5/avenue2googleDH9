@@ -3,11 +3,11 @@ Date finder ($ pip install datefinder)
 Selenium ($ pip install selenium)
 
 Venv setup (Linux): 
-python3 -m venv ~/.../Avenue2GoogleDH9/venv
+python3 -m venv ~/YOUR PATHWAY/avenue2googleDH9/venv
 source venv/bin/activate
 
 venv setup (windows)
-python3 -m venv C:\...\Avenue2GoogleDH9\venv
+python3 -m venv C:\YOUR PATHWAY\Avenue2GoogleDH9\venv
 if (venv) does not show up to left of terminal:
     $ venv/scripts/activate
     if permission is denied:
