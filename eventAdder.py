@@ -1,4 +1,5 @@
 from __future__ import print_function
+from get_assignments import dueDates
 
 import datetime
 import os.path
@@ -14,6 +15,12 @@ from googleapiclient.errors import HttpError
 service=""
 
 SCOPES = ['https://www.googleapis.com/auth/calendar']
+
+
+names,dates = dueDates()
+
+for i in range(len(names)):
+    print(names[i])
 
 def main():
     """Shows basic usage of the Google Calendar API.
@@ -88,5 +95,5 @@ def main():
         print('An error occurred: %s' % error)
 
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+    #main()
