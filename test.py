@@ -3,7 +3,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import time
 import json
-import urllib.request
 
 DRIVER_PATH = '/path/to/chromedriver'
 driver = webdriver.Chrome(executable_path=DRIVER_PATH)
