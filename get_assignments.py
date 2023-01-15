@@ -47,5 +47,6 @@ for i in range(num):
     date = driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/ul/li['+str(i+1)+']/div[2]/div/div/div[2]/div[1]').text
     print(name + " | " + date)
 time.sleep(2)
+
 driver.quit()
 
