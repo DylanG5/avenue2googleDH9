@@ -38,14 +38,15 @@ time.sleep(5)
 driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/a').click()
 time.sleep(1)
 str_num = driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/div[1]/span[2]/span').text
-date = driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/ul/li[1]/div[2]/div/div/div[2]/div[1]').text
+
 
 num = int(str_num)
-
+name = []
+date = []
 for i in range(num):
-    name = driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/ul/li['+str(i+1)+']/div[2]/div/div/div[1]/div[2]').text
-    date = driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/ul/li['+str(i+1)+']/div[2]/div/div/div[2]/div[1]').text
-    print(name + " | " + date)
+    name.append(driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/ul/li['+str(i+1)+']/div[2]/div/div/div[1]/div[2]').text)
+    date.append(driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/ul/li['+str(i+1)+']/div[2]/div/div/div[2]/div[1]').text)
+    print(name[i] + " | " + date[i])
 time.sleep(2)
 
 driver.quit()
