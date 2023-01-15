@@ -111,5 +111,3 @@ def main():
     driver.quit()
     return name,date
 
-if __name__ == "__main__":
-    main()
