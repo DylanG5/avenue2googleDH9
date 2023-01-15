@@ -50,7 +50,7 @@ def main():
                 'location': 'McMaster University',
                 'description':'Automated Calendar Events',
                 'start': {
-                    'dateTime': dates[i]+'09:00:00-07:00',
+                    'dateTime': dates[i]+'T09:00:00-07:00',
                     'timeZone': 'America/Los_Angeles',
                 },
                 'end': {

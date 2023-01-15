@@ -51,6 +51,8 @@ def pullinfo():
         print(name[i] + " | " + date[i])
     time.sleep(2)
 
+    count = 0
+
     for i in date:
         i = i[0:12]
         j = '2023-MM-DD'
@@ -79,29 +81,32 @@ def pullinfo():
         elif (i[0:3] == 'Dec'):
             j=j.replace('MM','12')
 
-        if (i[4:6] == '1 '):
+        if (i[4:6] == '1,'):
             j=j.replace('DD','01')
-        elif (i[4:6] == '2 '):
+        elif (i[4:6] == '2,'):
             j=j.replace('DD','02')
-        elif (i[4:6] == '3 '):
+        elif (i[4:6] == '3,'):
             j=j.replace('DD','03')
-        elif (i[4:6] == '4 '):
+        elif (i[4:6] == '4,'):
             j=j.replace('DD','04')
-        elif (i[4:6] == '5 '):
+        elif (i[4:6] == '5,'):
             j=j.replace('DD','05')
-        elif (i[4:6] == '6 '):
+        elif (i[4:6] == '6,'):
             j=j.replace('DD','06')
-        elif (i[4:6] == '7 '):
+        elif (i[4:6] == '7,'):
             j=j.replace('DD','07')
-        elif (i[4:6] == '8 '):
+        elif (i[4:6] == '8,'):
             j=j.replace('DD','08')
-        elif (i[4:6] == '9 '):
+        elif (i[4:6] == '9,'):
             j=j.replace('DD','09')
         else:
             j=j.replace('DD',i[4:6])
-        print(j)
-
-def main():
+        date[count] = j
+        
+        count+=1
+    print(date)
+    
+def dueDates():
     signup()
     time.sleep(1)
     authen()
