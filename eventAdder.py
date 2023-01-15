@@ -17,15 +17,12 @@ service=""
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 
-names,dates = dueDates()
-
-for i in range(len(names)):
-    print(names[i])
 
 def main():
     """Shows basic usage of the Google Calendar API.
     Prints the start and name of the next 10 events on the user's calendar.
     """
+    names,dates = dueDates()
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -46,34 +43,37 @@ def main():
     
     try:
         service = build('calendar', 'v3', credentials=creds)
-        event = {
-            'summary': 'please dont authenticate me',
-            'location': 'McMaster University',
-            'description':'Automated Calendar Events',
-            'start': {
-                'dateTime': '2023-05-30T09:00:00-07:00',
-                'timeZone': 'America/Los_Angeles',
-            },
-            'end': {
-                'dateTime': '2023-05-30T17:00:00-07:00',
-                'timeZone': 'America/Los_Angeles',
-            },
-            'recurrence': [
-                'RRULE:FREQ=DAILY;COUNT=1'
-            ],
-            'attendees': [
-                
-            ],
-            'reminders': {
-                'useDefault': False,
-                'overrides': [
-                {'method': 'email', 'minutes': 24 * 60},
-                {'method': 'popup', 'minutes': 10},
-                ],
-            },
-        }
 
-        event = service.events().insert(calendarId='primary', body=event).execute()
+        for i in range(len(names)):
+            event = {
+                'summary': names[i],
+                'location': 'McMaster University',
+                'description':'Automated Calendar Events',
+                'start': {
+                    'dateTime': dates[i]+'T09:00:00-07:00',
+                    'timeZone': 'America/Los_Angeles',
+                },
+                'end': {
+                    'dateTime': dates[i]+'T17:00:00-07:00',
+                    'timeZone': 'America/Los_Angeles',
+                },
+                'recurrence': [
+                    'RRULE:FREQ=DAILY;COUNT=1'
+                ],
+                'attendees': [
+                    
+                ],
+                'reminders': {
+                    'useDefault': False,
+                    'overrides': [
+                    {'method': 'email', 'minutes': 24 * 60},
+                    {'method': 'popup', 'minutes': 10},
+                    ],
+                },
+            }
+            event = service.events().insert(calendarId='primary', body=event).execute()
+
+
         # Call the Calendar API
         now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
         print('Getting the upcoming 10 events')
