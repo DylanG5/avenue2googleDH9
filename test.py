@@ -13,8 +13,10 @@ with open('Credentials.json') as jsonFile:
 
 time.sleep(1)
 
-driver.get('https://avenue.mcmaster.ca/?target=\%2Fd2l\%2Fhome')
+driver.get('https://avenue.cllmcmaster.ca/d2l/le/calendar/6605')
 
+time.sleep(2)
+driver.find_element(By.XPATH,'/html/body/div[2]/div/div[1]/d2l-html-block/div/table/tbody/tr[1]/td/p[2]/span/strong/a').click()
 time.sleep(2)
 driver.find_element(By.XPATH,'/html/body/div/div[1]/ul/li[1]/a').click()
 time.sleep(2)
@@ -30,12 +32,22 @@ while twofactor:
     except:
         twofactor = True
 
+
+time.sleep(5)
+driver.find_element(By.XPATH,'/html/body/div[3]/div[1]/div/div/div/div[1]/div/ul/li[5]/a').click()
+time.sleep(5)
+driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/a').click()
+time.sleep(1)
+str_num = driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/div[1]/span[2]/span').text
+date = driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/ul/li[1]/div[2]/div/div/div[2]/div[1]').text
+
+num = int(str_num)
+
+for i in range(num):
+    name = driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/ul/li['+str(i+1)+']/div[2]/div/div/div[1]/div[2]').text
+    date = driver.find_element(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div[2]/div[3]/div[2]/div[2]/form/div/div/ul/li['+str(i+1)+']/div[2]/div/div/div[2]/div[1]').text
+    print(name + " | " + date)
 time.sleep(2)
-driver.find_element(By.XPATH,'/html/body/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div[1]/div/div[1]/a/h2').click()
-time.sleep(2)
-print(driver.find_element(By.XPATH,'/html/body').text)
-time.sleep(10000)
-date = driver.find_element(By.XPATH, '/html/body/d2l-w2d-work-to-do//d2l-w2d-collections//div/div[2]').text
-print(date)
+
 driver.quit()
 
