@@ -1,9 +1,10 @@
 from selenium import webdriver
+from pyshadow.main import Shadow
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import time
 import json
-
+import urllib.request
 
 DRIVER_PATH = '/path/to/chromedriver'
 driver = webdriver.Chrome(executable_path=DRIVER_PATH)
@@ -31,11 +32,8 @@ while twofactor:
         twofactor = True
 
 time.sleep(2)
-driver.find_element(By.XPATH,'/html/body/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div[1]/div/div[1]/a/h2').click()
-time.sleep(2)
-print(driver.find_element(By.XPATH,'/html/body').text)
+print(driver.find_element(By.XPATH,'/html/body/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div[3]/d2l-expand-collapse-content/div/div[1]/div[2]/div/div/div[2]/div/ul').text)
+        
 time.sleep(10000)
-date = driver.find_element(By.XPATH, '/html/body/d2l-w2d-work-to-do//d2l-w2d-collections//div/div[2]').text
-print(date)
 driver.quit()
 
