@@ -55,7 +55,7 @@ def pullinfo():
 
     for i in date:
         i = i[0:12]
-        j = '2023-MM-DD'
+        j = i[i.index(",") + 2: i.index(",") + 6]+'-MM-DD'
         if (i[0:3] == 'Jan'):
             j=j.replace('MM','01')
         elif (i[0:3] == 'Feb'):
