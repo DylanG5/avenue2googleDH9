@@ -1,8 +1,15 @@
-Google client for library (pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib)
-Date finder (pip install datefinder)
-Selenium (pip install selenium)
+Google client for library ($ pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib)
+Date finder ($ pip install datefinder)
+Selenium ($ pip install selenium)
 
-Venv setup: 
-python3 -m venv ./Avenue2GoogleDH9/venv
+Venv setup (Linux): 
+python3 -m venv ~/.../Avenue2GoogleDH9/venv
 source venv/bin/activate
 
+venv setup (windows)
+python3 -m venv C:\...\Avenue2GoogleDH9\venv
+if (venv) does not show up to left of terminal:
+    $ venv/scripts/activate
+    if permission is denied:
+    $ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+    $ venv/scripts/activate
