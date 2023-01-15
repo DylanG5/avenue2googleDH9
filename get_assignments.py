@@ -51,7 +51,7 @@ def pullinfo():
         print(name[i] + " | " + date[i])
     time.sleep(2)
 
-def main():
+def dueDates():
     signup()
     time.sleep(1)
     authen()
@@ -61,5 +61,3 @@ def main():
     driver.quit()
     return name,date
 
-if __name__ == "__main__":
-    main()
