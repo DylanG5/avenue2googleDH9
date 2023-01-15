@@ -1,0 +1,3 @@
+Google client for library (pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib)
+Date finder (pip install datefinder)
+Selenium (pip install selenium)
