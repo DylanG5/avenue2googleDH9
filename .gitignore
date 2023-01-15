@@ -3,3 +3,4 @@ token.json
 loginInfo.json
 venv/
 venv
+.venv
