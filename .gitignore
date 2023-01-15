@@ -5,3 +5,4 @@ loginInfo.json
 venv/
 venv
 .venv
+virtualenv/
