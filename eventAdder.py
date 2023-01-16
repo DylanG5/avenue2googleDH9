@@ -40,11 +40,26 @@ def main():
         # Save the credentials for the next run
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
+            
     
+
     try:
         service = build('calendar', 'v3', credentials=creds)
-
+        # Call the Calendar API
+        now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
+        print('Getting the upcoming 10 events')
+        events_result = service.events().list(calendarId='primary', timeMin=now,
+                                              maxResults=100, singleEvents=True,
+                                              orderBy='startTime').execute()
+        events = events_result.get('items', []) 
+        overlap = False
         for i in range(len(names)):
+            for j in events:
+                if (j['start'].get('dateTime', j['start'].get('date')) == dates[i]+'T00:00:00-05:00' and j['end'].get('dateTime', j['end'].get('date'))[10:] == 'T00:00:00-05:00'):
+                    overlap = True
+            if overlap:
+                overlap = False
+                continue
             event = {
                 'summary': names[i],
                 'location': 'McMaster University',
@@ -74,13 +89,7 @@ def main():
             event = service.events().insert(calendarId='primary', body=event).execute()
 
 
-        # Call the Calendar API
-        now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
-        print('Getting the upcoming 10 events')
-        events_result = service.events().list(calendarId='primary', timeMin=now,
-                                              maxResults=10, singleEvents=True,
-                                              orderBy='startTime').execute()
-        events = events_result.get('items', [])
+        
 
         if not events:
             print('No upcoming events found.')
@@ -88,9 +97,9 @@ def main():
 
         # Prints the start and name of the next 10 events
         for event in events:
-            start = event['start'].get('dateTime', event['start'].get('date'))
+            start = event['end'].get('dateTime', event['end'].get('date'))
             print(start, event['summary'])
-
+        print(event)
     except HttpError as error:
         print('An error occurred: %s' % error)
 
