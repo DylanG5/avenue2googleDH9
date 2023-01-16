@@ -55,7 +55,7 @@ def main():
         overlap = False
         for i in range(len(names)):
             for j in events:
-                if (j['start'].get('dateTime', j['start'].get('date')) == dates[i]+'T00:00:00-05:00' and j['end'].get('dateTime', j['end'].get('date'))[10:] == 'T00:00:00-05:00'):
+                if (j['start'].get('dateTime', j['start'].get('date')) == dates[i]+'T00:00:00-05:00' and j['end'].get('dateTime', j['end'].get('date'))[10:] == 'T00:00:00-05:00' and j['summary'] == names[i]):
                     overlap = True
             if overlap:
                 overlap = False
